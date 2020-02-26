@@ -413,7 +413,7 @@ function loseLife(){
       setTimeout(dropBall, 700);
       }
       if(gameState=='playL4'){
-      setTimeout(dropBall, 400);
+      setTimeout(dropBall, 700);
       }
       if(gameState=='playL5'){
       setTimeout(dropBall, 0);
@@ -688,7 +688,7 @@ function resetBall(){
 
 function dropBall(){
   ball.xSpeed= 4*(Math.random() * 2 - 1); //for the ball to fall RANDOMLY with -4<xSpeed<4 -- i'll implement ball bounce angle from the paddle later.
-  ball.ySpeed= 5;
+  ball.ySpeed= 4;
 }
 
 // -----------------------------------------------------------------------------
