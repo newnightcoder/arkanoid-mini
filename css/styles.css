@@ -1,13 +1,13 @@
 @font-face {
-  src: url("/fonts/arkanoid.ttf");
+  src: url("fonts/arkanoid.ttf");
   font-family: arka;
 }
 @font-face {
-  src: url("../fonts/arkasolid.ttf");
+  src: url("fonts/arkasolid.ttf");
   font-family: arkasolid;
 }
 @font-face {
-  src: url("../fonts/RetroGaming.ttf");
+  src: url("fonts/RetroGaming.ttf");
   font-family: pixel;
 }
 html {
