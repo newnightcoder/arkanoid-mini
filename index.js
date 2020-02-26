@@ -602,11 +602,11 @@ function updatePaddle(){
     paddle.speed=6;
   }
   if (gameState=='level4'||gameState=='playL4'||gameState=='pauseL4'){
-    paddle.width=50;
+    paddle.width=60;
     paddle.speed=7;
   }
   if (gameState=='level5'||gameState=='playL5'||gameState=='pauseL5'){
-    paddle.width=45;
+    paddle.width=50;
     paddle.speed=7;
   }
   if (gameState=='gameover'){
