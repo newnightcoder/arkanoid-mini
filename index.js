@@ -1210,7 +1210,7 @@ function ballCollisionsBricks(){
 
 function draw(){
   if (gameState!=='ending'){
-      displayScore('SCORE: '+ score, 400, 48)
+      displayScore('SCORE: '+ score, 380, 48)
     if (life>3){
       displayLives(life+' lives', 40, 48);
     }
