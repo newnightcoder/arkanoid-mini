@@ -602,7 +602,7 @@ function updatePaddle(){
     paddle.speed=6;
   }
   if (gameState=='level4'||gameState=='playL4'||gameState=='pauseL4'){
-    paddle.width=60;
+    paddle.width=55;
     paddle.speed=7;
   }
   if (gameState=='level5'||gameState=='playL5'||gameState=='pauseL5'){
@@ -689,6 +689,9 @@ function resetBall(){
 function dropBall(){
   ball.xSpeed= 4*(Math.random() * 2 - 1); //for the ball to fall RANDOMLY with -4<xSpeed<4 -- i'll implement ball bounce angle from the paddle later.
   ball.ySpeed= 4;
+  if(gameState=='playL5'){
+    ball.ySpeed=5;
+  }
 }
 
 // -----------------------------------------------------------------------------
