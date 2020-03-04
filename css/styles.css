@@ -88,9 +88,10 @@ html {
 #welcome .link:hover {
   color: black;
 }
-#welcome .link .span {
+#welcome .link .gecimen {
   font-size: 0.7em;
-  margin-top: 0;
+  position: relative;
+  top: -5px;
 }
 #welcome .link .history {
   font-size: 3vmin;
