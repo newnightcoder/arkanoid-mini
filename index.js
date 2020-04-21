@@ -1,15 +1,16 @@
-//
-// 1- DOM variables
-// 2- game states + display styling
-// 3- game play/keyboard control
-// 4- sounds
-// 5- game stats/lives/gameover
-// 6- levels
-// 7- paddle
-// 8- ball
-// 9- bricks
-// 10- collisions
-// ---> game loop functions
+
+//------------------------------------------------------------------------------
+//    1- DOM variables
+//    2- game states + display styling
+//    3- game play/keyboard control
+//    4- sounds
+//    5- game stats/lives/gameover
+//    6- levels
+//    7- paddle
+//    8- ball
+//    9- bricks
+//    10- collisions
+//    ---> game loop functions
 // -----------------------------------------------------------------------------
 //                            1- DOM VARIABLES
 // -----------------------------------------------------------------------------
@@ -343,7 +344,7 @@ soundPaddle.src='sounds/paddle.mp3';
 soundBricks.src='sounds/goldbricks.mp3';
 soundWalls.src ='sounds/walls.mp3';
 soundLost.src ='sounds/lostlife.mp3';
-soundLevelWon.src='sounds/levelwon.wav';
+soundLevelWon.src='sounds/levelwon.mp3';
 soundGameOver.src='sounds/gameover.mp3';
 soundIntro.src='sounds/intro.mp3';
 soundLevel1.src ='sounds/level1.mp3';

@@ -110,6 +110,16 @@ html {
   font-size: 1.5vmin;
 }
 
+@media (max-width: 420px) and (orientation: portrait) {
+  .footer {
+    font-size: 2em;
+  }
+}
+@media (max-height: 420px) and (orientation: landscape) {
+  .footer {
+    font-size: 2em;
+  }
+}
 #intro {
   display: none;
   background-image: url("../img/DOH3d.png");
