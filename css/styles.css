@@ -112,12 +112,12 @@ html {
 
 @media (max-width: 420px) and (orientation: portrait) {
   .footer {
-    font-size: 2em;
+    font-size: 5em;
   }
 }
 @media (max-height: 420px) and (orientation: landscape) {
   .footer {
-    font-size: 2em;
+    font-size: 5em;
   }
 }
 #intro {
