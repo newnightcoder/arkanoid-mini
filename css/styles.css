@@ -42,6 +42,11 @@ html {
   top: 0;
   height: 110vh;
 }
+@media (max-width: 1025px) {
+  #welcome img {
+    height: 100vh;
+  }
+}
 #welcome h1 {
   margin-top: 70px;
   margin-bottom: 0;
@@ -108,6 +113,11 @@ html {
   position: absolute;
   bottom: 0;
   font-size: 1.5vmin;
+}
+@media (max-width: 1025px) {
+  #welcome .footer {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 420px) and (orientation: portrait) {
@@ -180,7 +190,13 @@ html {
     color: #ffffff;
   }
 }
-#intro .skip, #intro .toLevel1, #intro .toLevel2, #intro .toLevel3, #intro .toLevel4, #intro .toLevel5, #intro .toEnd {
+#intro .skip,
+#intro .toLevel1,
+#intro .toLevel2,
+#intro .toLevel3,
+#intro .toLevel4,
+#intro .toLevel5,
+#intro .toEnd {
   margin-top: 10px;
   font-size: 0.8rem;
   background-color: transparent;
@@ -192,7 +208,13 @@ html {
   border: 3px solid white;
   border-radius: 10px;
 }
-#intro .skip:hover, #intro .toLevel1:hover, #intro .toLevel2:hover, #intro .toLevel3:hover, #intro .toLevel4:hover, #intro .toLevel5:hover, #intro .toEnd:hover {
+#intro .skip:hover,
+#intro .toLevel1:hover,
+#intro .toLevel2:hover,
+#intro .toLevel3:hover,
+#intro .toLevel4:hover,
+#intro .toLevel5:hover,
+#intro .toEnd:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
@@ -211,7 +233,10 @@ html {
   width: 200px;
   margin-bottom: 50px;
 }
-#intro .toLevel2, #intro .toLevel3, #intro .toLevel4, #intro .toLevel5 {
+#intro .toLevel2,
+#intro .toLevel3,
+#intro .toLevel4,
+#intro .toLevel5 {
   font-size: 1rem;
   margin-right: 10px;
 }
