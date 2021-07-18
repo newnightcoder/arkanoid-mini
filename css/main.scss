@@ -63,15 +63,20 @@ html {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  font-size: 14px;
+  height: 100vh;
+  width: 100vw;
 }
 #body {
-  height: 100vh;
+  height: 100%;
+  width: 100%;
   margin: 0;
   @include flex;
   justify-content: center;
   background-color: black;
   font-family: $font;
   color: $colorText;
+  overflow: hidden;
 }
 //------------------------------------------------------------------------------
 // 3- WELCOME MENU
@@ -80,18 +85,33 @@ html {
   z-index: 3;
   @include flex; //switch to display:none
   text-align: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  @media screen and (max-width: 764px) {
+    width: 100vw;
+  }
   img {
     z-index: -1;
     position: absolute;
     background-position: center;
     top: 0;
     height: 110vh;
-    @media (max-width: 1025px) {
-      height: 100vh;
+    @media screen and (max-width: 764px) {
+      top: 10%;
+      height: 80%;
+      width: 95%;
+      object-fit: cover;
+      // border: 10px solid red;
+    }
+    @media screen and (max-width: 764px) and (orientation: landscape) {
+      top: 0;
+      height: 120%;
+      object-fit: contain;
     }
   }
   h1 {
-    margin-top: 70px;
+    margin-top: 160px;
     margin-bottom: 0;
     padding: 0;
     position: relative;
@@ -99,25 +119,39 @@ html {
     font-size: 16vmin;
     color: $colorText;
     letter-spacing: 0.2rem;
+    @media screen and (max-width: 764px) {
+      margin-top: 70px;
+    }
     &::after {
       content: "mini";
       font-size: 5vmin;
       position: absolute;
       top: 30px;
+      @media screen and (max-width: 1024px) {
+        display: none;
+      }
     }
   }
   .underTitle {
     margin-top: 0.9em;
-    font-size: 1em;
+    font-size: 1.5rem;
+    @media screen and (max-width: 768px) {
+      font-size: 1.5rem;
+      width: 23ch;
+    }
   }
   .playGame {
-    margin-top: 3em;
-    font-size: 3vmin;
+    margin-top: 3rem;
+    font-size: 7vmin;
     text-transform: uppercase;
     color: $colorText;
     animation: playBlink 800ms infinite ease-in;
     &:hover {
       @include hoverButtons;
+    }
+    @media screen and (max-width: 764px) {
+      font-size: 2.5rem;
+      margin-top: 1rem;
     }
   }
   @keyframes playBlink {
@@ -148,69 +182,251 @@ html {
       &:hover {
         @include hoverButtons;
       }
+      @media screen and (max-width: 768px) {
+        font-size: 1.75rem;
+        width: 23ch;
+        .gecimen {
+          font-size: 1.5rem;
+        }
+      }
     }
   }
-  .footer {
-    position: absolute;
-    bottom: 0;
-    font-size: 1.5vmin;
-    @media (max-width: 1025px) {
-      font-size: 1rem;
+  @media screen and (max-height: 400px) and(orientation:landscape) {
+    .playGame {
+      margin-top: 0px;
+    }
+    .link {
+      margin-top: -20px;
+      .history {
+        font-size: 1.25rem;
+        .gecimen {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+  @media screen and (max-height: 600px) and(orientation:landscape) {
+    .playGame {
+      margin-top: 0px;
+    }
+    .link {
+      margin-top: -40px;
+      .history {
+        font-size: 1.25rem;
+      }
     }
   }
 }
-@media (max-width: 420px) and (orientation: portrait) {
-  .footer {
-    font-size: 5em;
-  }
-}
-@media (max-height: 420px) and (orientation: landscape) {
-  .footer {
-    font-size: 5em;
-  }
-}
+
 //------------------------------------------------------------------------------
 // 4- INTRO MENU
 //------------------------------------------------------------------------------
 #intro {
   display: none;
   background-image: url("../img/DOH3d.png");
-  background-repeat: space;
+  background-repeat: repeat-x;
   background-position: center;
-  height: 300px;
-  width: 800px;
+  background-size: 30%;
+  height: 400px;
+  width: 90vw;
   margin: 3em 0;
   padding: 3em 0;
   overflow-y: scroll;
-  text-align: center;
-  font-size: 1.5em;
-  line-height: 1.5rem;
+  border: 3px solid white;
+  animation: facezoom 150000ms forwards;
+
+  @media screen and (max-width: 600px) {
+    border: none;
+    background-repeat: no-repeat;
+    background-size: 75%;
+    width: 100vw;
+    height: 70%;
+    padding: 0 10px;
+    animation: facezoomMobile 150000ms forwards;
+  }
+  @media screen and (max-width: 600px) and (orientation: landscape) {
+    background-repeat: space;
+    background-size: 30%;
+    width: 100vw;
+    height: 70%;
+    padding: 0 10px;
+    animation: facezoomMobileLandscape 150000ms forwards;
+  }
+
+  @keyframes facezoomMobileLandscape {
+    0% {
+      background-size: 30%;
+    }
+    100% {
+      background-size: 60%;
+    }
+  }
+  @keyframes facezoomMobile {
+    0% {
+      background-size: 75%;
+    }
+    100% {
+      background-size: 150%;
+    }
+  }
+  @keyframes facezoom {
+    0% {
+      background-size: 30%;
+    }
+    100% {
+      background-size: 80%;
+    }
+  }
+
+  .introtext-wrapper {
+    width: min-content;
+    text-align: center;
+    font-size: 1.75rem;
+    line-height: 1.5rem;
+    margin: 0 auto;
+    transform: translateY(15%);
+    animation: introText 150000ms ease-out forwards;
+    // border: 1px solid red;
+
+    @media screen and (max-width: 600px) and (orientation: portrait) {
+      font-size: 2rem;
+      padding: 0 10px;
+      width: auto;
+      line-height: 2rem;
+      transform: translateY(21%);
+      animation: introTextMobile 150000ms ease-out forwards;
+    }
+
+    @media screen and (max-height: 600px) and (orientation: landscape) {
+      font-size: 1.5rem;
+      padding: 0 10px;
+      width: auto;
+      line-height: 2rem;
+      transform: translateY(12%);
+      animation: introTextMobileLandscape 150000ms ease-out forwards;
+      .p11 {
+        margin-bottom: 0;
+      }
+      .toLevel1 {
+        margin-bottom: 0px;
+      }
+      .chooseLevel {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        // border: 1px solid lime;
+
+        button {
+          width: 14ch;
+          font-size: 0.75rem;
+        }
+      }
+    }
+    @media screen and (max-width: 400px) and (orientation: portrait) {
+      font-size: 1.75rem;
+      padding: 0 10px;
+      width: auto;
+      line-height: 2rem;
+      transform: translateY(15%);
+      animation: introTextMobileSmall 150000ms ease-out forwards;
+      button {
+        font-size: 1rem;
+      }
+      .chooseLevel button {
+        font-size: 1rem;
+        width: 16ch;
+      }
+    }
+    @media screen and (max-height: 400px) and (orientation: landscape) {
+      font-size: 1.75rem;
+      padding: 0 10px;
+      width: auto;
+      line-height: 2rem;
+      transform: translateY(15%);
+      animation: introTextMobileSmallLandscape 150000ms ease-out forwards;
+      button {
+        font-size: 1rem;
+      }
+      .chooseLevel button {
+        font-size: 1rem;
+        width: max-content;
+      }
+    }
+  }
   p {
     line-height: 3rem;
+    @media screen and (max-width: 600px) and (orientation: portrait) {
+      line-height: 2.5rem;
+      max-width: 25ch;
+      margin: 0 auto;
+    }
   }
   .p1 {
-    animation: introText 150000ms ease-out forwards;
     position: relative;
     margin-top: 0;
   }
   .p4 {
     color: #0aeb00;
     animation: colorChange 3000ms infinite;
+    @media screen and (max-width: 600px) and (orientation: portrait) {
+      padding: 0.75rem 0;
+    }
   }
   .p11 {
-    margin-bottom: 1.5em;
+    margin: 2.5rem 0 1.5rem 0;
+    white-space: nowrap;
+    @media screen and (max-width: 600px) and (orientation: portrait) {
+      white-space: normal;
+    }
   }
   .vaus {
     animation: colorChange 3000ms infinite;
   }
+
   @keyframes introText {
     0% {
-      margin-top: 320px;
+      transform: translateY(15%);
     }
     100% {
-      margin-top: -1530px;
+      transform: translateY(-83.5%);
     }
   }
+
+  @keyframes introTextMobile {
+    0% {
+      transform: translateY(21%);
+    }
+    100% {
+      transform: translateY(-80.5%);
+    }
+  }
+
+  @keyframes introTextMobileLandscape {
+    0% {
+      transform: translateY(12%);
+    }
+    100% {
+      transform: translateY(-90.7%);
+    }
+  }
+  @keyframes introTextMobileSmall {
+    0% {
+      transform: translateY(19%);
+    }
+    100% {
+      transform: translateY(-84.5%);
+    }
+  }
+
+  @keyframes introTextMobileSmallLandscape {
+    0% {
+      transform: translateY(19%);
+    }
+    100% {
+      transform: translateY(-91.5%);
+    }
+  }
+
   @keyframes colorChange {
     0% {
       color: #0aeb00;
@@ -231,8 +447,7 @@ html {
       color: #ffffff;
     }
   }
-  .chooseLevel {
-  }
+
   .skip,
   .toLevel1,
   .toLevel2,
@@ -249,26 +464,68 @@ html {
     }
   }
   .skip {
-    animation: introBlink 900ms infinite ease-out;
     position: absolute;
-    width: 100px;
+    width: 150px;
     font-size: 1rem;
-    top: 50vh;
-    right: 10vw;
-    margin: auto;
+    bottom: 10px;
+    right: 5%;
+    transform: translateY(-50%);
+    margin-top: 0;
+    white-space: nowrap;
+    @include flex();
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    .skip-chevron {
+      font-size: 1.75rem;
+      position: absolute;
+      right: 7px;
+      top: 50%;
+      transform: translateY(-54%);
+    }
+    @media screen and (max-width: 1200px) {
+      right: auto;
+      left: 50%;
+      bottom: 50px;
+      transform: translateX(-50%);
+      animation: introBlink 900ms infinite ease-out;
+    }
+    @media screen and (max-width: 1200px) and (orientation: landscape) {
+      right: auto;
+      left: 50%;
+      bottom: 15px;
+      transform: translateX(-45%);
+      animation: introBlink 900ms infinite ease-out;
+    }
   }
+
   .toLevel1 {
     animation: introBlink 900ms infinite ease-out;
     font-size: 1.2rem;
-    width: 200px;
+    width: 250px;
     margin-bottom: 50px;
+    @media screen and (max-width: 600px) {
+      font-size: 1rem;
+      width: max-content;
+      margin-bottom: 0px;
+    }
+  }
+
+  .chooseLevel {
+    @include flex();
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    // border: 1px solid lime;
   }
   .toLevel2,
   .toLevel3,
   .toLevel4,
-  .toLevel5 {
+  .toLevel5,
+  .toEnd {
     font-size: 1rem;
-    margin-right: 10px;
+    width: 250px;
   }
   .toLevel2:hover {
     color: orange;
@@ -311,7 +568,43 @@ html {
       outline: none;
     }
   }
+
+  @media screen and (max-width: 600px) {
+    .toLevel1 {
+      width: 200px;
+      font-size: 1.25rem;
+    }
+    .chooseLevel {
+      @include flex();
+      height: 100%;
+      align-items: center;
+      button {
+        width: 200px;
+        font-size: 1.25rem;
+        margin-right: 0;
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) and (orientation: landscape) {
+    .chooseLevel {
+      @include flex();
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      .toLevel2,
+      .toLevel3,
+      .toLevel4,
+      .toLevel5 {
+        font-size: 1rem;
+        min-height: 20px;
+      }
+    }
+  }
 }
+
 @keyframes introBlink {
   40% {
     color: transparent;
@@ -398,7 +691,7 @@ html {
   font-weight: bold;
   border-radius: 10px;
   animation: restartBlink 900ms infinite ease-out;
-  animation-delay: 1500ms;
+  animation-delay: 150000ms;
   &:hover {
     cursor: pointer;
     transform: scale(1.12);
@@ -419,15 +712,22 @@ html {
 //----------------------------------------------------------------------------
 #end {
   display: none;
-  position: absolute;
-  height: 600px;
-  width: 800px;
-  color: black;
-  margin-top: 600px;
-  text-align: center;
-  font-size: 1.5em;
-  line-height: 2em;
-  animation: Outro 120000ms ease-out forwards;
+  height: max-height;
+  width: 90%;
+  border-left: 3px solid white;
+  border-right: 3px solid white;
+
+  .endtext-wrapper {
+    width: 90%;
+    margin: 0 auto;
+    transform: translateY(65%);
+    color: black;
+    text-align: center;
+    font-size: 1.75em;
+    line-height: 2em;
+    animation: Outro 120000ms ease-out forwards;
+  }
+
   .vaus {
     animation: colorChange 3000ms infinite;
   }
@@ -462,12 +762,55 @@ html {
   .cartridge {
     margin-bottom: 10vh;
   }
+
+  @media screen and (max-width: 600px) {
+    border-left: none;
+    border-right: none;
+    .endtext-wrapper {
+      transform: translateY(29%);
+      font-size: 1.5rem;
+      max-width: 20ch;
+      animation: OutroMobile 120000ms ease-out forwards;
+    }
+    .thankYou {
+      margin-top: -30px;
+    }
+    .endScreen {
+      font-size: 4rem;
+      margin: 50px auto;
+      sup {
+        display: none;
+      }
+    }
+    .endMention {
+      line-height: 2rem;
+      width: 15ch;
+      margin: 20px auto;
+    }
+    .socialIcons {
+      margin-top: 20px;
+    }
+
+    .cartridge {
+      margin-top: 20px;
+      width: 300px;
+      height: 300px;
+    }
+  }
 }
 @keyframes Outro {
   0% {
-    margin-top: 600px;
+    transform: translateY(65%);
   }
   100% {
-    margin-top: -1170px;
+    transform: translateY(-26%);
+  }
+}
+@keyframes OutroMobile {
+  0% {
+    transform: translateY(29%);
+  }
+  100% {
+    transform: translateY(-70.5%);
   }
 }
