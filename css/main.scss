@@ -472,7 +472,7 @@ html {
     transform: translateY(-50%);
     margin-top: 0;
     white-space: nowrap;
-    @include flex();
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -512,7 +512,7 @@ html {
   }
 
   .chooseLevel {
-    @include flex();
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
@@ -577,7 +577,6 @@ html {
     .chooseLevel {
       @include flex();
       height: 100%;
-      align-items: center;
       button {
         width: 200px;
         font-size: 1.25rem;
@@ -588,7 +587,7 @@ html {
 
   @media screen and (max-width: 600px) and (orientation: landscape) {
     .chooseLevel {
-      @include flex();
+      display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
@@ -671,7 +670,6 @@ html {
       visibility: hidden;
       opacity: 0;
       @include flex();
-      align-items: center;
       justify-content: center;
       z-index: 1000;
       background-color: rgba(0, 0, 0, 0.8);

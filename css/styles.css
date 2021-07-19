@@ -459,8 +459,6 @@ html {
   margin-top: 0;
   white-space: nowrap;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -505,8 +503,6 @@ html {
 }
 #intro .chooseLevel {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
@@ -561,7 +557,6 @@ html {
     flex-direction: column;
     align-items: center;
     height: 100%;
-    align-items: center;
   }
   #intro .chooseLevel button {
     width: 200px;
@@ -572,8 +567,6 @@ html {
 @media screen and (max-width: 600px) and (orientation: landscape) {
   #intro .chooseLevel {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
@@ -650,7 +643,6 @@ html {
     opacity: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
     align-items: center;
     justify-content: center;
     z-index: 1000;
