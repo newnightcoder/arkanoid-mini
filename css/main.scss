@@ -183,10 +183,10 @@ html {
         @include hoverButtons;
       }
       @media screen and (max-width: 768px) {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         width: 23ch;
         .gecimen {
-          font-size: 1.5rem;
+          font-size: 1.25rem;
         }
       }
     }

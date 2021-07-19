@@ -156,11 +156,11 @@ html {
 }
 @media screen and (max-width: 768px) {
   #welcome .link .history {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     width: 23ch;
   }
   #welcome .link .history .gecimen {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 }
 @media screen and (max-height: 400px) and (orientation: landscape) {
