@@ -795,12 +795,37 @@ html {
   font-size: 6em;
   color: white;
 }
+@media screen and (max-width: 1000px) {
+  #end .endScreen {
+    font-size: 8rem;
+  }
+}
+@media screen and (max-width: 769px) {
+  #end .endScreen {
+    font-size: 6rem;
+  }
+}
 #end .endScreen sup {
   font-size: 0.2em;
 }
+@media screen and (max-width: 1000px) {
+  #end .endScreen sup {
+    display: none;
+  }
+}
 #end .endMention {
-  margin-top: -100px;
   color: white;
+  margin-top: -100px;
+}
+@media screen and (max-width: 1000px) {
+  #end .endMention {
+    margin-top: -80px;
+  }
+}
+@media screen and (max-width: 769px) {
+  #end .endMention {
+    margin-top: -60px;
+  }
 }
 #end .socialIcons {
   margin-top: -20px;
@@ -860,7 +885,7 @@ html {
     transform: translateY(50%);
   }
   100% {
-    transform: translateY(-90.5%);
+    transform: translateY(-36%);
   }
 }
 

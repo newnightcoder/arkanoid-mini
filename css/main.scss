@@ -820,13 +820,28 @@ html {
     font-family: $fontTitle;
     font-size: 6em;
     color: $colorText;
+    @media screen and (max-width: 1000px) {
+      font-size: 8rem;
+    }
+    @media screen and (max-width: 769px) {
+      font-size: 6rem;
+    }
     sup {
       font-size: 0.2em;
+      @media screen and (max-width: 1000px) {
+        display: none;
+      }
     }
   }
   .endMention {
-    margin-top: -100px;
     color: $colorText;
+    margin-top: -100px;
+    @media screen and (max-width: 1000px) {
+      margin-top: -80px;
+    }
+    @media screen and (max-width: 769px) {
+      margin-top: -60px;
+    }
   }
   .socialIcons {
     margin-top: -20px;
@@ -887,6 +902,6 @@ html {
     transform: translateY(50%);
   }
   100% {
-    transform: translateY(-90.5%);
+    transform: translateY(-36%);
   }
 }

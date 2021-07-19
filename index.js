@@ -278,7 +278,9 @@ function displayLevel() {
     startButton.style.display = "none";
     canvas.style.display = "none";
     body.style.backgroundImage = "linear-gradient(#a5b1c2, #45aaf2)";
-    // soundEnding.play();
+    document.querySelector(".endtext-wrapper").style.animation =
+      "Outro 120000ms ease-out forwards";
+    soundEnding.play();
   }
   window.innerWidth < 769 &&
   (gameState === "level1" ||
@@ -292,16 +294,14 @@ function displayLevel() {
       (modal.style.animation = "fadeIn 500ms forwards 500ms"))
     : null;
 
-  window.innerWidth < 600 && gameState === "ending"
-    ? (document.querySelector(".endtext-wrapper").style.animation =
-        "OutroMobile 1200ms ease-out forwards")
-    : (document.querySelector(".endtext-wrapper").style.animation =
-        "Outro 1200ms ease-out forwards");
-  window.innerHeight < 500 && gameState === "ending"
-    ? (document.querySelector(".endtext-wrapper").style.animation =
-        "OutroMobile 1200ms ease-out forwards")
-    : (document.querySelector(".endtext-wrapper").style.animation =
-        "Outro 1200ms ease-out forwards");
+  if (window.innerWidth < 600 && gameState === "ending") {
+    document.querySelector(".endtext-wrapper").style.animation =
+      "OutroMobile 120000ms ease-out forwards";
+  }
+  if (window.innerHeight < 500 && gameState === "ending") {
+    document.querySelector(".endtext-wrapper").style.animation =
+      "OutroMobile 120000ms ease-out forwards";
+  }
 }
 // -----------------------------------------------------------------------------
 //                        3- GAMEPLAY / KEYBOARD CONTROL
