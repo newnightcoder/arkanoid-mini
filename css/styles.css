@@ -498,6 +498,15 @@ html {
     animation: introBlink 900ms infinite ease-out;
   }
 }
+@media screen and (max-width: 600px) {
+  #intro .skip {
+    right: auto;
+    left: 50%;
+    bottom: 88%;
+    transform: translateX(-45%);
+    animation: introBlink 900ms infinite ease-out;
+  }
+}
 #intro .toLevel1 {
   animation: introBlink 900ms infinite ease-out;
   font-size: 1.2rem;
