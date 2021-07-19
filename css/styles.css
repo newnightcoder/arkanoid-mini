@@ -598,7 +598,7 @@ html {
   margin-top: 37.5px;
   display: none;
   position: absolute;
-  width: 500px;
+  max-width: 500px;
   background-color: transparent;
   color: white;
   text-align: center;
@@ -621,6 +621,9 @@ html {
   flex-direction: column;
   display: none;
 }
+#game .modal-mobile {
+  display: none;
+}
 #game .levelName {
   margin-bottom: 20px;
   text-align: center;
@@ -628,8 +631,86 @@ html {
   font-size: 1.2em;
 }
 #game #canvas {
-  border-bottom: 5px solid #999;
+  border-bottom: 5px solid #777;
   border-radius: 3%;
+}
+@media screen and (max-width: 769px) {
+  #game #canvas {
+    width: 80%;
+    margin: 0 auto;
+  }
+  #game .modal-mobile {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  #game .modal-mobile .modal-content {
+    height: max-content;
+    transform: translateY(-50%);
+    opacity: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #game .modal-mobile .modal-content .message {
+    height: max-content;
+    width: 80vw;
+    background-color: transparent;
+    font-size: 1.75rem;
+    text-align: center;
+    margin: 55px 0 25px;
+    line-height: 2.5rem;
+  }
+  #game .modal-mobile .modal-content .message span {
+    display: inline-block;
+    margin-top: 15px;
+  }
+  #game .modal-mobile .modal-content a {
+    border: 3px solid white;
+    border-radius: 10px;
+    background-color: transparent;
+    font-family: "pixel";
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+    padding: 10px 10px;
+    display: inline-block;
+    width: min-content;
+    font-size: 1.5rem;
+    white-space: nowrap;
+    text-decoration: none;
+    animation: startBlink 1000ms infinite;
+  }
+  @keyframes comeIn {
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeIn {
+    100% {
+      opacity: 1;
+    }
+  }
+}
+@media screen and (max-height: 600px) and (orientation: landscape) {
+  #game #canvas {
+    width: 45%;
+    margin: 0 auto;
+  }
 }
 
 #pause {
@@ -696,7 +777,6 @@ html {
   text-align: center;
   font-size: 1.75em;
   line-height: 2em;
-  animation: Outro 120000ms ease-out forwards;
 }
 #end .vaus {
   animation: colorChange 3000ms infinite;
@@ -732,16 +812,15 @@ html {
 #end .cartridge {
   margin-bottom: 10vh;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px), screen and (max-height: 500px) and (orientation: landscape) {
   #end {
     border-left: none;
     border-right: none;
   }
   #end .endtext-wrapper {
-    transform: translateY(29%);
+    transform: translateY(50%);
     font-size: 1.5rem;
     max-width: 20ch;
-    animation: OutroMobile 120000ms ease-out forwards;
   }
   #end .thankYou {
     margin-top: -30px;
@@ -778,10 +857,10 @@ html {
 }
 @keyframes OutroMobile {
   0% {
-    transform: translateY(29%);
+    transform: translateY(50%);
   }
   100% {
-    transform: translateY(-70.5%);
+    transform: translateY(-90.5%);
   }
 }
 

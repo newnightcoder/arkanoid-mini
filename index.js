@@ -21,6 +21,7 @@ const canvas_width = 550;
 let body = document.querySelector("#body");
 let home = document.querySelector("#welcome");
 let intro = document.querySelector("#intro");
+let modal = document.querySelector(".modal-mobile");
 let skipButton = document.querySelector(".skip");
 let buttonToLevel1 = document.querySelector(".toLevel1");
 let buttonToLevel2 = document.querySelector(".toLevel2");
@@ -264,8 +265,10 @@ function displayLevel() {
     canvas.style.backgroundImage = "none";
     canvas.style.borderBottom = "none";
     body.style.backgroundImage = "url('img/DOHred.png')";
-    body.style.backgroundSize = "40%";
-    body.style.backgroundRepeat = "repeat";
+    window.innerWidth > 600
+      ? (body.style.backgroundSize = "30%")
+      : (body.style.backgroundSize = "120%");
+    body.style.backgroundRepeat = "space";
     body.style.backgroundPosition = "center";
     displayLevelName();
   }
@@ -277,6 +280,28 @@ function displayLevel() {
     body.style.backgroundImage = "linear-gradient(#a5b1c2, #45aaf2)";
     // soundEnding.play();
   }
+  window.innerWidth < 769 &&
+  (gameState === "level1" ||
+    gameState === "level2" ||
+    gameState === "level3" ||
+    gameState === "level4" ||
+    gameState === "level5")
+    ? ((gameRules.style.display = "none"),
+      (modal.style.visibility = "visible"),
+      (modal.children[0].style.animation = "comeIn 300ms forwards 750ms"),
+      (modal.style.animation = "fadeIn 500ms forwards 500ms"))
+    : null;
+
+  window.innerWidth < 600 && gameState === "ending"
+    ? (document.querySelector(".endtext-wrapper").style.animation =
+        "OutroMobile 1200ms ease-out forwards")
+    : (document.querySelector(".endtext-wrapper").style.animation =
+        "Outro 1200ms ease-out forwards");
+  window.innerHeight < 500 && gameState === "ending"
+    ? (document.querySelector(".endtext-wrapper").style.animation =
+        "OutroMobile 1200ms ease-out forwards")
+    : (document.querySelector(".endtext-wrapper").style.animation =
+        "Outro 1200ms ease-out forwards");
 }
 // -----------------------------------------------------------------------------
 //                        3- GAMEPLAY / KEYBOARD CONTROL
