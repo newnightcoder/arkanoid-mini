@@ -314,8 +314,6 @@ html {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-evenly;
-        // border: 1px solid lime;
-
         button {
           width: 14ch;
           font-size: 0.75rem;
@@ -448,7 +446,6 @@ html {
     }
   }
 
-  .skip,
   .toLevel1,
   .toLevel2,
   .toLevel3,
@@ -464,6 +461,8 @@ html {
     }
   }
   .skip {
+    @include buttons();
+    @include introButtons();
     position: absolute;
     width: 150px;
     font-size: 1rem;
@@ -476,6 +475,10 @@ html {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    &:hover {
+      cursor: pointer;
+      border-color: blueviolet;
+    }
     .skip-chevron {
       font-size: 1.75rem;
       position: absolute;

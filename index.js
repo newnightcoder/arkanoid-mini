@@ -221,7 +221,7 @@ function displayLevel() {
 
   if (gameState == "home") {
     setGameState("intro");
-    soundIntro.play();
+    // soundIntro.play();
     setTimeout(hideSkipButton, 96500);
   } else if (gameState == "intro") {
     setGameState("level1");

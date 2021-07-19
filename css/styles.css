@@ -421,7 +421,6 @@ html {
     color: #ffffff;
   }
 }
-#intro .skip,
 #intro .toLevel1,
 #intro .toLevel2,
 #intro .toLevel3,
@@ -439,7 +438,6 @@ html {
   border: 3px solid white;
   border-radius: 10px;
 }
-#intro .skip:hover,
 #intro .toLevel1:hover,
 #intro .toLevel2:hover,
 #intro .toLevel3:hover,
@@ -450,6 +448,14 @@ html {
   transform: scale(1.1);
 }
 #intro .skip {
+  border: 3px solid white;
+  border-radius: 10px;
+  background-color: transparent;
+  font-family: "pixel";
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+  padding: 10px 10px;
   position: absolute;
   width: 150px;
   font-size: 1rem;
@@ -462,6 +468,10 @@ html {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+#intro .skip:hover {
+  cursor: pointer;
+  border-color: blueviolet;
 }
 #intro .skip .skip-chevron {
   font-size: 1.75rem;
