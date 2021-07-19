@@ -291,8 +291,8 @@ function displayLevel() {
     gameState === "level5")
     ? ((gameRules.style.display = "none"),
       (modal.style.visibility = "visible"),
-      (modal.children[0].style.animation = "comeIn 300ms forwards 750ms"),
-      (modal.style.animation = "fadeIn 500ms forwards 500ms"))
+      (modal.children[0].style.animation = "comeIn 300ms forwards 1250ms"),
+      (modal.style.animation = "fadeIn 1000ms forwards 1000ms"))
     : null;
 
   if (window.innerWidth < 600 && gameState === "ending") {
